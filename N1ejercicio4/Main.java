@@ -12,7 +12,7 @@ public class Main {
 	public static void main(String[] args) {
 	
 //		javac Main.java
-//		java Main.java C:/Users/rodri/Desktop/pruebas.txt
+//		java Main.java C:/Users/rodri/Desktop/prueba.txt --> txt debe exixtir en la ruta para poder leerlo
 
 		
 		
@@ -33,6 +33,7 @@ public class Main {
 			}
 			
 			leerArchivo.close();
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
