@@ -1,3 +1,4 @@
+
 package tasca5.N1ejercicio5;
 
 import java.io.FileInputStream;
@@ -8,6 +9,9 @@ import java.io.Serializable;
 
 public class Main {
 
+	
+	
+	
 	public static void main(String[] args) {
 		
 
@@ -35,15 +39,14 @@ public class Main {
 			
 			ObjectInputStream deserializando = new ObjectInputStream(new FileInputStream("C:/Users/rodri/Desktop/producto.ser"));
 			Producto[] listaProductosDeserlializado =(Producto[]) deserializando.readObject();
-			deserializando.close();
+			
 			
 			
 			//Imprimiendo lista de Productos deserializados
 			
 			for (Producto p : listaProductosDeserlializado) {
 				System.out.println(p);		
-			}
-			
+			}			
 			
 		} catch (Exception e) {
 			
