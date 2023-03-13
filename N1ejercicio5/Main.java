@@ -10,12 +10,12 @@ import java.io.ObjectOutputStream;
 
 public class Main {
 
-	public static void serializar(Producto[] listaProductos) {
+	public static void serializar(String path,Producto[] listaProductos) {
 
 		ObjectOutputStream serializando;
-		String directorio = "C:/Users/rodri/Desktop/producto.ser";
+//		String directorio = "C:/Users/rodri/Desktop/producto.ser";
 		try {
-			serializando = new ObjectOutputStream(new FileOutputStream(directorio));
+			serializando = new ObjectOutputStream(new FileOutputStream(path));
 			serializando.writeObject(listaProductos);
 			serializando.close();
 
@@ -26,15 +26,16 @@ public class Main {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
+		deSerializar(path);
 
 	}
 
 	public static void deSerializar(String directorio) {
-		
+
 		ObjectInputStream deserializando;
 		try {
-			deserializando = new ObjectInputStream(
-					new FileInputStream(directorio));
+			deserializando = new ObjectInputStream(new FileInputStream(directorio));
 			Producto[] listaProductosDeserlializado = (Producto[]) deserializando.readObject();
 
 			// Imprimiendo lista de Productos deserializados
@@ -42,7 +43,7 @@ public class Main {
 			for (Producto p : listaProductosDeserlializado) {
 				System.out.println(p);
 			}
-			
+
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -50,7 +51,7 @@ public class Main {
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-
+		
 		
 	}
 
@@ -63,12 +64,11 @@ public class Main {
 
 		listaProductos[0] = producto1;
 		listaProductos[1] = producto2;
-		
-		serializar(listaProductos);
-		
-		deSerializar("C:/Users/rodri/Desktop/producto.ser");
 
-
+		String path = args[0];
+		Main app = new Main();
+		app.serializar(path, listaProductos);
+		
 	}
 
 }
