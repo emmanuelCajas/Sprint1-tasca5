@@ -1,3 +1,7 @@
+
+seteamos la ruta de los archivos compilados
+
+
 Tasca5.N1.ejercicio1
 --------------------
 java Main.java C:/Users/rodri/Desktop
